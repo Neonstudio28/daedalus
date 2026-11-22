@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Privacy · Daedalus Systems</title>
+<meta name="description" content="What the Daedalus Systems website collects and what we do with it.">
+<meta name="theme-color" content="#141414">
+<meta name="color-scheme" content="dark light">
+<script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400&family=Funnel+Sans:wght@400;500&family=Geist+Mono:wght@400&display=swap">
+<!--
+  DRAFT for legal review before launch. Written to match what the site does today:
+  no cookies, cookieless Vercel Web Analytics, a contact form that only builds a note in the browser,
+  Google Fonts and jsDelivr loaded from their CDNs, hosting on Vercel.
+  If any of that changes (analytics, a form backend, a newsletter), update this page.
+-->
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#141414; --panel:#1A1A1A; --line:#2E2E2E; --line-2:#3A3A3A; --hatch:#2A2A2A;
+  --fg:#EDEDED; --muted:#A3A3A3; --dim:#8A8A8A; --accent:#FF3616;
+  --f-display:'Funnel Display','Helvetica Neue',Arial,sans-serif;
+  --f-body:'Funnel Sans','Helvetica Neue',Arial,sans-serif;
+  --f-mono:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+:root[data-theme="light"]{
+  color-scheme:light;
+  --bg:#F5F4F0; --panel:#FFFFFF; --line:#DEDBD3; --line-2:#CAC6BC; --hatch:#E3E0D9;
+  --fg:#151515; --muted:#4F4D48; --dim:#6B6860; --accent:#E3300F;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--fg);font:17px/1.65 var(--f-body);-webkit-font-smoothing:antialiased}
+.shell{max-width:1328px;margin:0 auto}
+@media (min-width:1040px){.shell{padding-inline:56px;background:repeating-linear-gradient(135deg,var(--bg) 0 12px,var(--hatch) 12px 13px)}}
+.frame{background:var(--bg);border-left:1px solid var(--line);border-right:1px solid var(--line);min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;padding-inline:clamp(16px,3vw,28px);border-bottom:1px solid var(--line)}
+.brand{display:inline-flex;align-items:center;gap:10px;color:var(--fg);text-decoration:none;font:400 19px/1 var(--f-display);letter-spacing:-.02em;white-space:nowrap}
+.brand svg{width:24px;height:26px;flex:none}
+.brand path{fill:currentColor;stroke:currentColor;stroke-width:1.4;stroke-linejoin:round}
+.back{color:var(--muted);text-decoration:none;font-size:14.5px;white-space:nowrap}
+.back:hover{color:var(--fg)}
+article{width:100%;max-width:760px;margin:0 auto;padding:clamp(48px,9vw,104px) clamp(16px,4vw,40px) 88px;flex:1}
+.k{font:12px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+h1{font:400 clamp(40px,7vw,64px)/1 var(--f-display);letter-spacing:-.04em;margin:18px 0 14px}
+h1 span{color:var(--accent)}
+.upd{color:var(--dim);font-size:14px}
+.intro{margin-top:28px;font-size:19px;color:var(--fg);max-width:60ch}
+h2{font:400 24px/1.2 var(--f-display);letter-spacing:-.02em;margin:48px 0 12px;padding-top:24px;border-top:1px solid var(--line)}
+p,li{color:var(--muted);max-width:64ch}
+p+p{margin-top:12px}
+ul{margin:12px 0 0;padding-left:1.15em}
+li{margin-top:8px}
+li::marker{color:var(--dim)}
+article a{color:var(--fg);text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:3px}
+article a:hover{text-decoration-color:var(--fg)}
+address{font-style:normal;color:var(--muted)}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;padding:20px clamp(16px,3vw,28px);border-top:1px solid var(--line);font:11px/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.foot nav{display:flex;flex-wrap:wrap;gap:12px 24px}
+.foot a{color:var(--dim);text-decoration:none}
+.foot a:hover,.foot a[aria-current]{color:var(--fg)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="frame">
+    <header class="top">
+      <a class="brand" href="./" aria-label="Daedalus Systems home"><svg viewBox="0 0 92.01 100" aria-hidden="true"><path d="M5.21 62.08C1.51 56.85 0.12 48.77 0.01 42.47C-0.16 33.83 2.91 23.01 8.45 16.27C24.2 -2.86 63.39 -7.47 77.83 15.27C80.88 20.06 82.59 25.97 83.44 31.55C83.75 33.61 83.73 35.62 84.23 37.64L91.74 60.29C92.24 61.1 92.04 61.85 91.26 61.95L82.97 62.98C82.75 63.01 82.57 63.22 82.57 63.44L82.69 79.59C82.69 80.22 82.19 80.74 81.56 80.76L69.79 81.09C69.51 81.1 69.29 81.33 69.29 81.61L69.29 97.86C69.29 99.04 68.33 100 67.15 100L58.88 100C57.7 100 56.74 99.04 56.74 97.86L56.74 84.5C56.74 76.45 63.75 69.33 68.14 63.06C75.1 53.09 79.46 41.61 78 29.33C77.16 22.28 73.81 15.1 68.67 10.16C60.8 2.6 49.71 0.26 39.14 1.93C26.75 3.89 17.62 12.87 15.38 25.16C14.54 29.72 14.87 33.86 14.54 38.39C11.13 46.2 8.19 54.18 5.44 62.23L15.42 63.21L15.42 77.45L16.17 80.85L28.9 81.65C29.32 81.67 29.65 82.02 29.65 82.44L29.65 97.86C29.65 99.04 28.7 100 27.51 100L18.32 100C17.13 100 16.17 99.04 16.17 97.86L16.17 80.85L5.21 62.08Z"/></svg>Daedalus Systems</a>
+      <a class="back" href="./">Back to the site</a>
+    </header>
+
+    <main>
+      <article>
+        <span class="k">Legal</span>
+        <h1>Privacy<span>.</span></h1>
+        <p class="upd">Last updated 22 November 2026</p>
+        <p class="intro">This page explains what the Daedalus Systems website collects and what we do with it. It covers this website only. Telemetry, rental contracts and customer details shared during a financing deal are covered by the agreements for that deal.</p>
+
+        <h2>What this site collects</h2>
+        <ul>
+          <li>The site sets no cookies and runs no advertising or cross-site tracking scripts.</li>
+          <li>We count visits with <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener">Vercel Web Analytics</a>. It sets no cookies and doesn't identify you. It records the page you view, the site that referred you, your browser, operating system, device type and country, and we only see those as totals.</li>
+          <li>The contact form doesn't send anything. It builds a note in your browser for you to copy into your own email. Nothing you type in it reaches us unless you send that email yourself.</li>
+          <li>Our hosting provider may record standard request details, such as your IP address, browser type and the pages you load, to deliver and secure the site.</li>
+        </ul>
+
+        <h2>Services the site loads</h2>
+        <p>Pages load fonts from Google Fonts and code libraries from jsDelivr. Your browser contacts those services directly, so they receive your IP address and browser details under their own policies: <a href="https://developers.google.com/fonts/faq/privacy" target="_blank" rel="noopener">Google Fonts</a> and <a href="https://www.jsdelivr.com/terms/privacy-policy-jsdelivr-net" target="_blank" rel="noopener">jsDelivr</a>.</p>
+        <p>The sources we cite link to other websites. Their own privacy policies apply once you leave this site.</p>
+
+        <h2>When you email us</h2>
+        <p>If you email us, we receive your name, your email address and whatever you include, such as your company, your role and details about your fleet. We use it to reply, to work out whether we can finance your fleet, and to keep a record of our conversation.</p>
+        <p>We share it only with people who help us respond or assess a deal. That includes our capital partners when you ask us to pursue financing, and advisers or authorities when the law requires it. We don't sell personal information.</p>
+
+        <h2>Keeping and deleting it</h2>
+        <p>We keep emails for as long as we need them for the reasons above, or as long as the law requires. You can ask us to show, correct or delete what we hold about you. To ask, email us at <!-- PLACEHOLDER email (fictional) --><a href="mailto:hello@daedalus.tech">hello@daedalus.tech</a>.</p>
+
+        <h2>Changes</h2>
+        <p>If this page changes, we'll update the date at the top.</p>
+
+        <h2>Contact</h2>
+        <!-- PLACEHOLDER address and email: replace before launch -->
+        <address>Daedalus Systems LLC<br>1847 Labyrinth Way, Suite 300<br>Dallas, TX 75201<br><a href="mailto:hello@daedalus.tech">hello@daedalus.tech</a></address>
+      </article>
+    </main>
+
+    <footer class="foot">
+      <span>© 2026 Daedalus Systems LLC</span>
+      <nav aria-label="Legal"><a href="./">Home</a><a href="privacy.html" aria-current="page">Privacy</a><a href="terms.html">Terms</a></nav>
+    </footer>
+  </div>
+</div>
+</body>
+</html>

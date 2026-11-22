@@ -1,0 +1,8 @@
+# Internal notes and sources: never deploy these
+CLAUDE.md
+v1-single-page.html
+brand-src/
+.claude/
+.DS_Store
+# Unused font weight (only the italic is loaded)
+fonts/redaction-35-latin-400-normal.woff2

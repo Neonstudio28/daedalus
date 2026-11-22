@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Funnel+Sans:wght@300..800&family=Geist+Mono:wght@400..600&display=block">
+<style>
+@font-face{font-family:'Redaction 35';font-style:italic;font-weight:400;font-display:block;src:url(../fonts/redaction-35-latin-400-italic.woff2) format('woff2')}
+*{box-sizing:border-box;margin:0}
+html,body{width:1200px;height:630px;overflow:hidden}
+body{background:repeating-linear-gradient(135deg,#141414 0 12px,#2A2A2A 12px 13px);font-family:'Funnel Sans',sans-serif;color:#EDEDED;-webkit-font-smoothing:antialiased}
+.frame{position:absolute;inset:0 64px;background:#141414;border-left:1px solid #3A3A3A;border-right:1px solid #3A3A3A;overflow:hidden}
+.glow{position:absolute;width:760px;height:760px;right:-260px;bottom:-420px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,54,22,.38),rgba(255,54,22,0))}
+.rule{position:absolute;left:0;right:0;height:1px;background:#2E2E2E}
+.r1{top:96px}.r2{bottom:96px}
+.plus{position:absolute;z-index:2;width:15px;height:15px;margin:-7px 0 0 -7px}
+.plus::before,.plus::after{content:"";position:absolute;background:#5A5A5A}
+.plus::before{left:7px;top:0;width:1px;height:15px}.plus::after{top:7px;left:0;height:1px;width:15px}
+.in{position:absolute;inset:0;padding:0 72px}
+.top{position:absolute;top:0;left:72px;right:72px;height:96px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:14px;font-family:'Funnel Display',sans-serif;font-size:24px;letter-spacing:-.01em}
+.brand svg{width:30px;height:30px}
+.mono{font-family:'Geist Mono',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:#A3A3A3}
+.live{display:inline-block;width:8px;height:8px;border-radius:50%;background:#66CC64;margin-right:12px;vertical-align:1px;box-shadow:0 0 0 4px rgba(102,204,100,.16)}
+h1{position:absolute;left:72px;top:196px;font-family:'Funnel Display',sans-serif;font-weight:400;font-size:112px;line-height:.95;letter-spacing:-.045em}
+h1 em{display:block;font-family:'Redaction 35',serif;font-style:italic;letter-spacing:-.02em;font-size:1.08em;line-height:1;margin-top:.04em}
+h1 .pt{color:#FF3616}
+.bottom{position:absolute;bottom:0;left:72px;right:72px;height:96px;display:flex;align-items:center;justify-content:space-between}
+</style></head><body>
+<div class="frame">
+  <div class="glow"></div>
+  <div class="rule r1"></div><div class="rule r2"></div>
+  <div class="top">
+    <div class="brand"><svg viewBox="0 0 92.01 100" style="width:32px;height:35px"><path fill="#EDEDED" stroke="#EDEDED" stroke-width="1.5" stroke-linejoin="round" d="M5.21 62.08C1.51 56.85 0.12 48.77 0.01 42.47C-0.16 33.83 2.91 23.01 8.45 16.27C24.2 -2.86 63.39 -7.47 77.83 15.27C80.88 20.06 82.59 25.97 83.44 31.55C83.75 33.61 83.73 35.62 84.23 37.64L91.74 60.29C92.24 61.1 92.04 61.85 91.26 61.95L82.97 62.98C82.75 63.01 82.57 63.22 82.57 63.44L82.69 79.59C82.69 80.22 82.19 80.74 81.56 80.76L69.79 81.09C69.51 81.1 69.29 81.33 69.29 81.61L69.29 97.86C69.29 99.04 68.33 100 67.15 100L58.88 100C57.7 100 56.74 99.04 56.74 97.86L56.74 84.5C56.74 76.45 63.75 69.33 68.14 63.06C75.1 53.09 79.46 41.61 78 29.33C77.16 22.28 73.81 15.1 68.67 10.16C60.8 2.6 49.71 0.26 39.14 1.93C26.75 3.89 17.62 12.87 15.38 25.16C14.54 29.72 14.87 33.86 14.54 38.39C11.13 46.2 8.19 54.18 5.44 62.23L15.42 63.21L15.42 77.45L16.17 80.85L28.9 81.65C29.32 81.67 29.65 82.02 29.65 82.44L29.65 97.86C29.65 99.04 28.7 100 27.51 100L18.32 100C17.13 100 16.17 99.04 16.17 97.86L16.17 80.85L5.21 62.08Z"/></svg>Daedalus Systems</div>
+    <span class="mono">Robot fleet financing</span>
+  </div>
+  <h1>The bank for <em>robot fleets<span class="pt">.</span></em></h1>
+  <div class="bottom">
+    <span class="mono"><span class="live"></span>Funded on telemetry · hours, uptime, output</span>
+    <span class="mono">Dallas–Fort Worth</span>
+  </div>
+</div>
+<i class="plus" style="left:64px;top:96px"></i><i class="plus" style="left:1136px;top:96px"></i>
+<i class="plus" style="left:64px;top:534px"></i><i class="plus" style="left:1136px;top:534px"></i>
+</body></html>
