@@ -699,4 +699,5 @@ td.good{color:var(--ink);background:rgba(255,54,22,.035)}
 .plot-node text{font-family:var(--font-body);font-size:15px;font-weight:700;fill:#1B1B1A;dominant-baseline:middle}
 .daedalus-node rect{fill:#1B1B1A;stroke:rgba(255,54,22,.55);stroke-width:2;filter:drop-shadow(0 0 14px rgba(255,54,22,.24))}
 .daedalus-node text{fill:white;font-size:17px}
+@media (max-width:1080px) and (min-width:761px){.metric-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:760px){.position-map{height:230px}}
