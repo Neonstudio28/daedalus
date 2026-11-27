@@ -381,9 +381,9 @@ td.good{color:var(--ink);background:rgba(255,54,22,.035)}
     position:fixed;top:68px;left:0;right:0;
     display:grid;gap:4px;padding:14px 20px 20px;
     background:rgba(242,242,240,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);
-    transform:translateY(calc(-100% - 84px));transition:.24s;box-shadow:0 24px 50px -30px rgba(27,27,26,.25)
+    transform:translateY(calc(-100% - 84px));transition:.24s;visibility:hidden;max-height:calc(100vh - 68px);overflow-y:auto;box-shadow:0 24px 50px -30px rgba(27,27,26,.25)
   }
-  .site-head.open .nav-links{transform:none}
+  .site-head.open .nav-links{transform:none;visibility:visible}
   .nav-links a{height:44px;font-size:16px}
   .nav-cta{margin:8px 0 0}
   .hero{min-height:auto;padding-top:112px}
