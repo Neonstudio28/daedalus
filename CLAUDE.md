@@ -10,8 +10,7 @@ This folder holds the company website for **Daedalus Systems LLC** (a Texas LLC,
   - Robot companies, who keep the customer and keep their cash.
   - Capital partners, who get live data on every asset.
   - Nothing changes for contractors.
-- **Founder:** solo founder, applying to YC (W27). Based in Pune, India now. The company plans to base itself in **Dallas–Fort Worth, Texas**.
-- **Name clash:** there is an existing YC-backed company also called "Daedalus" (AI robotic factories). This was flagged; it hasn't been decided yet.
+- **Founder:** solo founder. Based in Pune, India now. The company plans to base itself in **Dallas–Fort Worth, Texas**.
 
 ### Copy rules (agreed with the founder)
 
@@ -50,7 +49,7 @@ The same site, the pitch deck and the full plan doc also live as claude.ai artif
 
 - Website: https://claude.ai/artifact/4KggBPMyB1Het1YYvkL9PZ
 - Deck (5 slides): https://claude.ai/artifact/XEb6FjFuNJiLH9HffVkUa8
-- Plan doc, including the YC answers: https://claude.ai/artifact/KcjWrPUcrWzfpGjpXcMwhY
+- Plan doc: https://claude.ai/artifact/KcjWrPUcrWzfpGjpXcMwhY
 
 ## How `index.html` works
 
@@ -100,9 +99,8 @@ The same site, the pitch deck and the full plan doc also live as claude.ai artif
 
 ## Open to-dos
 
-- [ ] Replace the fictional email `hello@daedalus.tech` (contact copybox, note panel, Privacy and Terms) with a real one. `daedalus.tech` is not a domain the company owns, so mail sent there goes nowhere useful.
 - [ ] Replace the placeholder office address before launch. "1847 Labyrinth Way, Suite 300, Dallas, TX 75201" is made up. It appears in the contact page Office box, the footer legal line, the "Where are you based?" FAQ and the Contact sections of `privacy.html` and `terms.html`, each marked with a `PLACEHOLDER` HTML comment.
-- [ ] The contact form only prepares a note for the visitor to copy. Connect it to a real form backend once the site is hosted (for example Formspree or a small serverless function).
+- [ ] Confirm the FormSubmit activation email for `hello@trydaedalus.tech`; after activation, replace the naked email in the form endpoint with FormSubmit's random alias if desired.
 - [x] Add a proper HTML skeleton, meta description, Open Graph image and favicon for real hosting.
 - [ ] Deploy (the founder has used Vercel before) and connect a domain. Then make `og:image` and `twitter:image` absolute URLs and add `og:url` and a canonical link.
 - [ ] Get counsel to review the footer disclaimer (marked `LEGAL REVIEW`), `privacy.html`, `terms.html` and the "bank for robot fleets" tagline. The Terms assume a Texas LLC with disputes heard in Dallas County; change that section if the LLC is formed elsewhere.

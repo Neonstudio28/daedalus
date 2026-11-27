@@ -96,31 +96,42 @@
             </div>
             <p class="lede">Contractors rent robots by the month instead of buying them. So the robot company pays for each machine up front and waits more than a year to earn it back. Every new customer makes the hole deeper.</p>
           </div>
-          <div class="cash-graph card" data-reveal role="group" aria-label="Illustrative cash flow chart. Scroll horizontally on small screens." tabindex="0">
-            <div class="graph-top"><span>One robot · cumulative cash · illustrative</span><span>$90K · $5K/mo</span></div>
-            <svg viewBox="0 0 640 280" role="img" aria-label="Combo chart for one self-funded rented robot. Monthly bars show five thousand dollars of illustrative rent. The cumulative cash line starts at negative ninety thousand dollars, crosses zero at month eighteen, and reaches positive ninety thousand dollars at month thirty-six.">
+          <div class="cash-graph card" data-reveal role="group" aria-label="Illustrative cumulative cash chart for one self-funded rented robot. Scroll horizontally on small screens." tabindex="0">
+            <div class="graph-header">
+              <div>
+                <span class="chart-eyebrow">Illustrative example</span>
+                <h3>Cash recovery for one rented robot.</h3>
+              </div>
+              <div class="chart-facts" aria-label="Assumptions"><span><small>Robot cost</small><b>$90K</b></span><span><small>Monthly rent</small><b>$5K</b></span></div>
+            </div>
+            <svg viewBox="0 0 720 340" role="img" aria-label="Cumulative cash starts at negative ninety thousand dollars, crosses zero at month eighteen, and reaches positive ninety thousand dollars at month thirty-six.">
               <defs>
-                <linearGradient id="cash-negative" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#FF3616" stop-opacity=".02"/><stop offset="1" stop-color="#FF3616" stop-opacity=".22"/></linearGradient>
-                <linearGradient id="cash-positive" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#249B62" stop-opacity=".24"/><stop offset="1" stop-color="#249B62" stop-opacity=".03"/></linearGradient>
+                <linearGradient id="cash-negative" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#FF3616" stop-opacity=".03"/><stop offset="1" stop-color="#FF3616" stop-opacity=".18"/></linearGradient>
+                <linearGradient id="cash-positive" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#249B62" stop-opacity=".2"/><stop offset="1" stop-color="#249B62" stop-opacity=".03"/></linearGradient>
               </defs>
-              <path class="mc-neg" fill="url(#cash-negative)" d="M70,195 L305,125 L70,125 Z"></path>
-              <path class="mc-pos" fill="url(#cash-positive)" d="M305,125 L540,55 L540,125 Z"></path>
-              <line class="mc-grid" x1="70" x2="540" y1="195.0" y2="195.0"></line><text class="mc-lbl" text-anchor="end" x="60" y="199.0">−$90K</text><line class="mc-grid" x1="70" x2="540" y1="160.0" y2="160.0"></line><text class="mc-lbl" text-anchor="end" x="60" y="164.0">−$45K</text><line class="mc-zero" x1="70" x2="540" y1="125.0" y2="125.0"></line><text class="mc-lbl" text-anchor="end" x="60" y="129.0">$0</text><line class="mc-grid" x1="70" x2="540" y1="90.0" y2="90.0"></line><text class="mc-lbl" text-anchor="end" x="60" y="94.0">+$45K</text><line class="mc-grid" x1="70" x2="540" y1="55.0" y2="55.0"></line><text class="mc-lbl" text-anchor="end" x="60" y="59.0">+$90K</text><line class="mc-grid mc-vgrid" x1="70.0" x2="70.0" y1="55" y2="195"></line><line class="mc-grid mc-vgrid" x1="148.3" x2="148.3" y1="55" y2="195"></line><line class="mc-grid mc-vgrid" x1="226.7" x2="226.7" y1="55" y2="195"></line><line class="mc-grid mc-vgrid" x1="305.0" x2="305.0" y1="55" y2="195"></line><line class="mc-grid mc-vgrid" x1="383.3" x2="383.3" y1="55" y2="195"></line><line class="mc-grid mc-vgrid" x1="461.7" x2="461.7" y1="55" y2="195"></line><line class="mc-grid mc-vgrid" x1="540.0" x2="540.0" y1="55" y2="195"></line>
-              <line class="mc-break" x1="305" x2="305" y1="58" y2="195"></line>
-              <path class="mc-line" data-graph-line d="M70,195 L540,55"></path>
-              <circle class="dot dot-a" cx="70" cy="195" r="5.5"></circle>
-              <circle class="dot dot-f" cx="305" cy="125" r="6"></circle>
-              <circle class="dot dot-g" cx="540" cy="55" r="5.5"></circle>
-              <g class="break-label"><rect x="318" y="32" width="136" height="26" rx="13"></rect><text x="330" y="49">Break-even · 18 mo</text></g>
-              <line class="mc-strip-line" x1="70" x2="540" y1="210" y2="210"></line>
-              <g class="rent-bars"><rect class="rent-bar" x="78.3" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="91.3" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="104.4" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="117.4" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="130.5" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="143.5" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="156.6" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="169.6" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="182.7" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="195.8" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="208.8" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="221.9" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="234.9" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="248.0" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="261.0" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="274.1" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="287.1" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="300.2" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="313.3" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="326.3" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="339.4" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="352.4" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="365.5" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="378.5" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="391.6" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="404.6" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="417.7" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="430.8" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="443.8" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="456.9" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="469.9" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="483.0" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="496.0" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="509.1" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="522.1" y="224" width="7" height="16" rx="1.5"></rect><rect class="rent-bar" x="535.2" y="224" width="7" height="16" rx="1.5"></rect></g>
-              <text class="mc-lbl" text-anchor="middle" x="70.0" y="264">0</text><text class="mc-lbl" text-anchor="middle" x="148.3" y="264">6</text><text class="mc-lbl" text-anchor="middle" x="226.7" y="264">12</text><text class="mc-lbl" text-anchor="middle" x="305.0" y="264">18</text><text class="mc-lbl" text-anchor="middle" x="383.3" y="264">24</text><text class="mc-lbl" text-anchor="middle" x="461.7" y="264">30</text><text class="mc-lbl" text-anchor="middle" x="540.0" y="264">36</text>
-              <circle class="scan-dot" data-scan-dot cx="70" cy="195" r="7"></circle>
-              <text class="cash-readout" data-cash-readout x="70" y="26">Month 36 · +$90K cash</text>
-              <text class="mc-lbl" x="70" y="278">Month</text>
-              <text class="mc-lbl" text-anchor="end" x="540" y="278">Illustrative cash flow</text>
+              <path class="mc-neg" fill="url(#cash-negative)" d="M80,278 L378,165 L80,165 Z"></path>
+              <path class="mc-pos" fill="url(#cash-positive)" d="M378,165 L676,52 L676,165 Z"></path>
+              <line class="mc-grid" x1="80" x2="676" y1="278" y2="278"></line><text class="mc-lbl" text-anchor="end" x="66" y="282">−$90K</text>
+              <line class="mc-grid" x1="80" x2="676" y1="221.5" y2="221.5"></line><text class="mc-lbl" text-anchor="end" x="66" y="225.5">−$45K</text>
+              <line class="mc-zero" x1="80" x2="676" y1="165" y2="165"></line><text class="mc-lbl zero-lbl" text-anchor="end" x="66" y="169">$0</text>
+              <line class="mc-grid" x1="80" x2="676" y1="108.5" y2="108.5"></line><text class="mc-lbl" text-anchor="end" x="66" y="112.5">+$45K</text>
+              <line class="mc-grid" x1="80" x2="676" y1="52" y2="52"></line><text class="mc-lbl" text-anchor="end" x="66" y="56">+$90K</text>
+              <line class="mc-break" x1="378" x2="378" y1="54" y2="278"></line>
+              <path class="mc-line" data-graph-line d="M80,278 L378,165 L676,52"></path>
+              <circle class="dot dot-a" cx="80" cy="278" r="6"></circle>
+              <circle class="dot dot-f" cx="378" cy="165" r="6.5"></circle>
+              <circle class="dot dot-g" cx="676" cy="52" r="6"></circle>
+              <g class="break-label" transform="translate(378 34)"><rect x="-77" y="-18" width="154" height="34" rx="17"></rect><text text-anchor="middle" y="5">Break-even · 18 mo</text></g>
+              <g class="x-ticks">
+                <line x1="80" x2="80" y1="278" y2="286"></line><text class="mc-lbl" text-anchor="middle" x="80" y="312">0</text>
+                <line x1="278.7" x2="278.7" y1="278" y2="286"></line><text class="mc-lbl" text-anchor="middle" x="278.7" y="312">12</text>
+                <line x1="477.3" x2="477.3" y1="278" y2="286"></line><text class="mc-lbl" text-anchor="middle" x="477.3" y="312">24</text>
+                <line x1="676" x2="676" y1="278" y2="286"></line><text class="mc-lbl" text-anchor="middle" x="676" y="312">36 months</text>
+              </g>
+              <circle class="scan-dot" data-scan-dot cx="80" cy="278" r="7"></circle>
+              <text class="cash-readout" data-cash-readout x="80" y="24">Month 36 · +$90K cash</text>
             </svg>
-            <div class="chart-note">Bars show monthly rent. Line shows cumulative cash.</div>
+            <div class="chart-note"><span><i class="legend-line"></i>Cumulative cash</span><span>Assumes constant monthly rent. Illustrative, not a projection.</span></div>
           </div>
           <div class="flow" data-reveal>
             <div class="flow-step"><h3>Build the robot</h3><div class="flow-visual"><b>01</b><span>→</span></div><p>The startup pays the full cost of the machine before it reaches the job site.</p></div>
@@ -485,25 +496,26 @@
       <section class="section tight">
         <div class="wrap contact-grid">
           <div>
-            <!-- PLACEHOLDER email: replace before launch -->
-            <div class="contact-card" data-reveal><b>Email</b><p><a href="mailto:hello@daedalus.tech">hello@daedalus.tech</a></p><p class="small">Placeholder launch email.</p></div>
+            <div class="contact-card" data-reveal><b>Email</b><p><a href="mailto:hello@trydaedalus.tech">hello@trydaedalus.tech</a></p></div>
+            <div class="contact-card" data-reveal><b>Support</b><p><a href="mailto:support@trydaedalus.tech">support@trydaedalus.tech</a><br><a href="mailto:contact@trydaedalus.tech">contact@trydaedalus.tech</a></p></div>
             <!-- PLACEHOLDER office: replace before launch -->
             <div class="contact-card" data-reveal><b>Office</b><p>1847 Labyrinth Way, Suite 300<br>Dallas, TX 75201</p><p class="small">Placeholder address. The company plans to base itself in Dallas-Fort Worth.</p></div>
-            <div class="contact-card" data-reveal><b>Applying to YC</b><p>Daedalus is a solo-founded company applying to Y Combinator for W27.</p></div>
           </div>
-          <form class="note-form" id="contact-form" data-reveal>
+          <form class="note-form" id="contact-form" action="https://formsubmit.co/hello@trydaedalus.tech" method="POST" data-reveal>
+            <input type="hidden" name="_subject" value="Fleet financing inquiry">
+            <input type="hidden" name="_template" value="table">
             <h2 style="font-size:36px;margin-bottom:10px">Prepare a note.</h2>
-            <p class="small" style="margin-bottom:24px">This form does not send anything by itself. It creates a message you can copy or open in your email app.</p>
+            <p class="small" style="margin-bottom:24px">Send the details directly to Daedalus, or open the note in your email app instead.</p>
             <div class="form-grid">
-              <div class="field"><label for="c-name">Name</label><input id="c-name" name="name" autocomplete="name"></div>
-              <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email"></div>
+              <div class="field"><label for="c-name">Name</label><input id="c-name" name="name" autocomplete="name" required></div>
+              <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
               <div class="field"><label for="c-type">I am a</label><select id="c-type" name="type"><option>Robot company</option><option>Capital partner</option><option>Contractor</option><option>Other</option></select></div>
               <div class="field"><label for="c-org">Company or organization</label><input id="c-org" name="org" autocomplete="organization"></div>
-              <div class="field full"><label for="c-message">Message</label><textarea id="c-message" name="message" placeholder="Tell us about the robots, monthly rent, fleet size and telemetry you have."></textarea></div>
+              <div class="field full"><label for="c-message">Message</label><textarea id="c-message" name="message" placeholder="Tell us about the robots, monthly rent, fleet size and telemetry you have." required></textarea></div>
             </div>
             <div class="form-actions">
-              <button class="button primary" id="copy-note" type="button">Copy note</button>
-              <a class="button secondary" id="mailto-link" href="mailto:hello@daedalus.tech">Open email app</a>
+              <button class="button primary" id="send-note" type="submit">Send message</button>
+              <a class="button secondary" id="mailto-link" href="mailto:hello@trydaedalus.tech">Open email app</a>
               <span class="copy-status" aria-live="polite"></span>
             </div>
           </form>
@@ -530,7 +542,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a class="brand" href="#home" data-route><svg class="brand-mark" aria-hidden="true"><use href="#mk"/></svg><span>Daedalus</span></a>
-          <p>Robot fleet financing underwritten on real telemetry. Daedalus Systems LLC is applying to Y Combinator W27.</p>
+          <p>Robot fleet financing underwritten on real telemetry.</p>
         </div>
         <div><h2>Product</h2><ul><li><a href="#how-it-works" data-route>How it works</a></li><li><a href="#quote" data-route>Get a quote</a></li><li><a href="#compare" data-route>Compare</a></li></ul></div>
         <div><h2>Customers</h2><ul><li><a href="#robot-companies" data-route>Robot companies</a></li><li><a href="#capital-partners" data-route>Capital partners</a></li><li><a href="#contact" data-route>Contact</a></li></ul></div>
