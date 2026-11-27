@@ -100,7 +100,7 @@ The same site, the pitch deck and the full plan doc also live as claude.ai artif
 ## Open to-dos
 
 - [ ] Replace the placeholder office address before launch. "1847 Labyrinth Way, Suite 300, Dallas, TX 75201" is made up. It appears in the contact page Office box, the footer legal line, the "Where are you based?" FAQ and the Contact sections of `privacy.html` and `terms.html`, each marked with a `PLACEHOLDER` HTML comment.
-- [ ] Confirm the FormSubmit activation email for `sales@trydaedalus.tech`; after activation, replace the naked email in the form endpoint with FormSubmit's random alias if desired.
+- [ ] Confirm the FormSubmit activation email for `hello@trydaedalus.tech`; after activation, replace the naked email in the form endpoint with FormSubmit's random alias if desired.
 - [x] Add a proper HTML skeleton, meta description, Open Graph image and favicon for real hosting.
 - [ ] Deploy (the founder has used Vercel before) and connect a domain. Then make `og:image` and `twitter:image` absolute URLs and add `og:url` and a canonical link.
 - [ ] Get counsel to review the footer disclaimer (marked `LEGAL REVIEW`), `privacy.html`, `terms.html` and the "bank for robot fleets" tagline. The Terms assume a Texas LLC with disputes heard in Dallas County; change that section if the LLC is formed elsewhere.

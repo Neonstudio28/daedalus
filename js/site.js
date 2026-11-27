@@ -208,7 +208,7 @@ function initContact() {
     return `Hello Daedalus,\n\nMy name is ${data.get('name') || ''}.\nI am a: ${data.get('type') || ''}\nCompany or organization: ${data.get('org') || ''}\n\n${data.get('message') || ''}\n\nReply to: ${data.get('email') || ''}`;
   };
   form.addEventListener('input', () => {
-    mailto.href = `mailto:sales@trydaedalus.tech?subject=${encodeURIComponent('Fleet financing inquiry')}&body=${encodeURIComponent(compose())}`;
+    mailto.href = `mailto:hello@trydaedalus.tech?subject=${encodeURIComponent('Fleet financing inquiry')}&body=${encodeURIComponent(compose())}`;
   });
   form.addEventListener('submit', async event => {
     event.preventDefault();
