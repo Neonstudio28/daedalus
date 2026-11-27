@@ -551,3 +551,6 @@ td.good{color:var(--ink);background:rgba(255,54,22,.035)}
 .hero h1{font-size:clamp(56px,7.5vw,108px);line-height:.94;max-width:900px;font-weight:600;letter-spacing:-.055em}
 .hero h1 .accent{font-family:"Redaction 35",Georgia,serif;font-style:italic;font-weight:400;color:var(--ember);letter-spacing:-.025em}
 @media (max-width:680px){.hero h1{font-size:clamp(48px,15vw,64px);line-height:.96}}
+.cta{background:rgba(31,31,30,.76);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(20px)}
+.cta::before{display:none}
+.cta{background-color:rgba(24,24,23,.88);background-image:linear-gradient(135deg,rgba(255,255,255,.045),rgba(255,255,255,0))}
