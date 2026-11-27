@@ -518,3 +518,4 @@ td.good{color:var(--ink);background:rgba(255,54,22,.035)}
   .ticker-track,.big-track{animation:none!important}
   .button,.button::before,.audience,.audience::after,.audience .go{transition:none!important}
 }
+.ticker-badge{position:absolute;right:0;top:0;bottom:0;z-index:2;display:flex;align-items:center;padding:0 20px 0 34px;background:linear-gradient(90deg,rgba(242,242,240,0),var(--ground) 34%);font-family:var(--font-mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--dim)}
