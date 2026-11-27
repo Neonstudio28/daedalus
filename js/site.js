@@ -221,6 +221,149 @@ function initContact() {
   form.dispatchEvent(new Event('input'));
 }
 
+function scrambleLabel(el, duration = 620) {
+  if (el.dataset.scrambling) return;
+  const original = el.dataset.originalText || el.textContent;
+  el.dataset.originalText = original;
+  el.dataset.scrambling = 'true';
+  const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  const start = performance.now();
+  const tick = now => {
+    const progress = Math.min(1, (now - start) / duration);
+    const settled = Math.floor(progress * original.length);
+    let out = '';
+    for (let i = 0; i < original.length; i++) {
+      const ch = original[i];
+      if (ch === ' ' || i < settled) out += ch;
+      else out += chars[Math.floor(Math.random() * chars.length)];
+    }
+    el.textContent = out;
+    if (progress < 1) requestAnimationFrame(tick);
+    else {
+      el.textContent = original;
+      delete el.dataset.scrambling;
+    }
+  };
+  requestAnimationFrame(tick);
+}
+
+function initNavScramble() {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  $$('.nav-links a').forEach(link => {
+    link.dataset.originalText = link.textContent;
+    const run = () => scrambleLabel(link);
+    link.addEventListener('mouseenter', run);
+    link.addEventListener('focus', run);
+    link.addEventListener('click', run);
+  });
+}
+
+function animateFigure(el) {
+  if (el.dataset.animated) return;
+  el.dataset.animated = 'true';
+  const finalText = el.textContent.trim();
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return;
+  const numeric = finalText.match(/^([^\d]*)([\d,.]+)([^\d]*)$/);
+  const rangeLike = finalText.includes('-') || finalText.includes('–');
+  if (!numeric || rangeLike) {
+    scrambleLabel(el, 760);
+    return;
+  }
+  const [, prefix, raw, suffix] = numeric;
+  const target = Number(raw.replace(/,/g, ''));
+  const decimals = (raw.split('.')[1] || '').length;
+  const useCommas = raw.includes(',');
+  const start = performance.now();
+  const duration = 1250;
+  const tick = now => {
+    const t = Math.min(1, (now - start) / duration);
+    const eased = 1 - (1 - t) ** 4;
+    const value = target * eased;
+    const formatted = decimals ? value.toFixed(decimals) : useCommas ? number(value) : String(Math.round(value));
+    el.textContent = `${prefix}${formatted}${suffix}`;
+    if (t < 1) requestAnimationFrame(tick);
+    else el.textContent = finalText;
+  };
+  el.textContent = `${prefix}${decimals ? (0).toFixed(decimals) : '0'}${suffix}`;
+  requestAnimationFrame(tick);
+}
+
+function initFigureAnimations() {
+  const figures = $$('.hero-facts b,.metric b,.stat b');
+  if (!figures.length) return;
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateFigure(entry.target);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: .45 });
+  figures.forEach(el => io.observe(el));
+}
+
+function initScrollAnimations() {
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced || !window.gsap || !window.ScrollTrigger) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  const stage = $('.hero-stage');
+  if (stage && innerWidth >= 768) {
+    const frame = $('.device-frame', stage);
+    const shade = $('.device-shade', stage);
+    const caption = $('.caption', stage);
+    gsap.set(frame, { transformPerspective: 1800, transformOrigin: '50% 0%' });
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: stage,
+        start: 'top bottom',
+        end: 'top top+=88',
+        scrub: .6,
+        invalidateOnRefresh: true
+      }
+    })
+      .fromTo(frame, { rotateX: 10, scale: .94 }, { rotateX: 0, scale: .98, ease: 'none' }, 0)
+      .fromTo(shade, { opacity: .08 }, { opacity: 0, ease: 'none' }, 0);
+
+    if (stage.offsetHeight + 112 < innerHeight) {
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: stage,
+          start: 'top top+=88',
+          end: '+=45%',
+          pin: true,
+          scrub: .6,
+          anticipatePin: 1
+        }
+      })
+        .to(frame, { scale: 1, ease: 'none' }, 0)
+        .fromTo(caption, { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, ease: 'none', duration: .6 }, .4);
+    }
+  }
+
+  const line = $('[data-graph-line]');
+  if (line) {
+    const length = Math.hypot(520, 260);
+    gsap.fromTo(line,
+      { strokeDasharray: length, strokeDashoffset: length },
+      {
+        strokeDashoffset: 0,
+        duration: 1.6,
+        ease: 'power3.inOut',
+        scrollTrigger: { trigger: line.closest('.cash-graph'), start: 'top 82%', once: true }
+      });
+    gsap.from('.cash-graph .dot', {
+      scale: 0,
+      transformOrigin: '50% 50%',
+      duration: .55,
+      ease: 'back.out(3)',
+      stagger: .16,
+      scrollTrigger: { trigger: line.closest('.cash-graph'), start: 'top 82%', once: true }
+    });
+  }
+}
+
 function init() {
   mountGlass();
   initNav();
@@ -229,6 +372,9 @@ function init() {
   initQuote();
   initMonitor();
   initContact();
+  initNavScramble();
+  initFigureAnimations();
+  initScrollAnimations();
   route();
   revealInView();
 }

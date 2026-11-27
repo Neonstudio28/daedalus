@@ -424,3 +424,97 @@ td.good{color:var(--ink);background:rgba(255,54,22,.035)}
 }
 
 .hero h1 .accent,.page-hero h1 .accent{color:inherit}
+
+/* Restored Daedalus interaction language */
+@font-face{
+  font-family:"Redaction 35";
+  src:url("/fonts/redaction-35-latin-400-italic.woff2") format("woff2");
+  font-style:italic;
+  font-weight:400;
+  font-display:swap;
+}
+.button{
+  position:relative;
+  overflow:hidden;
+  background-image:linear-gradient(var(--ember),var(--ember));
+  background-repeat:no-repeat;
+  background-position:50% 100%;
+  background-size:100% 0%;
+  transition:transform .18s,box-shadow .18s,border-color .18s,color .28s,background-size .42s cubic-bezier(.22,1,.36,1);
+}
+.button:hover{color:var(--white);background-size:100% 100%;border-color:var(--ember)}
+.button.primary:hover,.button.secondary:hover,.button.ember:hover{background-color:transparent;color:var(--white)}
+.button.ember{background-size:100% 100%}
+.button.ember:hover{background-color:transparent}
+.hero-stage{perspective:1800px}
+.device-frame{transform-origin:50% 0%;will-change:transform;position:relative}
+.device-shade{position:absolute;inset:0;z-index:3;border-radius:inherit;background:#000;opacity:0;pointer-events:none}
+.ticker{
+  overflow:hidden;white-space:nowrap;border-block:1px solid var(--line);
+  background:rgba(255,255,255,.38);backdrop-filter:blur(10px);padding:13px 0;position:relative;z-index:2;
+}
+.ticker-track{display:inline-flex;animation:ticker-scroll 54s linear infinite;will-change:transform}
+.ticker-group{display:inline-flex;flex:none}
+.ticker span{display:inline-flex;align-items:center;gap:10px;padding-right:32px;font-family:var(--font-mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.ticker b{color:var(--ink);font-weight:500}.ticker em{font-style:normal;color:var(--green)}.ticker em.warn{color:var(--amber)}.ticker em.service{color:var(--blue)}.ticker i{font-style:normal;color:var(--ember)}
+@keyframes ticker-scroll{to{transform:translateX(-50%)}}
+.cash-graph{padding:22px 24px;margin-bottom:22px}
+.graph-top{display:flex;justify-content:space-between;gap:18px;margin-bottom:10px;font-family:var(--font-mono);font-size:10px;color:var(--dim);letter-spacing:.09em;text-transform:uppercase}
+.cash-graph svg{width:100%;height:auto;display:block}
+.mc-grid{stroke:var(--line);stroke-width:1}
+.mc-zero{stroke:rgba(27,27,26,.28);stroke-width:1.5;stroke-dasharray:6 6}
+.mc-neg{fill:var(--ember);fill-opacity:.16}
+.mc-pos{fill:var(--green);fill-opacity:.14}
+.mc-line{fill:none;stroke:var(--ink);stroke-width:3.5;stroke-linecap:round}
+.mc-lbl{font-family:var(--font-mono);font-size:13px;fill:var(--dim)}
+.mc-val{font-family:var(--font-mono);font-size:14px;fill:var(--ink)}
+.mc-txt{font-family:var(--font-mono);font-size:13px;fill:var(--muted)}
+.accent-text{fill:var(--ember)!important}.green-text{fill:var(--green)!important}
+.cash-graph .dot{fill:var(--paper);stroke:var(--ink);stroke-width:2;transform-box:fill-box;transform-origin:center}
+.cash-graph .dot-a{stroke:var(--ember)}.cash-graph .dot-f{stroke:var(--ink)}.cash-graph .dot-g{stroke:var(--green)}
+.audience{isolation:isolate;text-decoration:none}
+.audience>*{position:relative;z-index:1}
+.audience::after{
+  content:"";position:absolute;inset:0;z-index:0;background:var(--ember);
+  transform:scaleY(0);transform-origin:50% 100%;transition:transform .58s cubic-bezier(.22,1,.36,1);
+}
+.audience:hover::after,.audience:focus-visible::after{transform:scaleY(1)}
+.audience:hover,.audience:focus-visible{color:var(--white);border-color:var(--ember)}
+.audience:hover h3,.audience:hover p,.audience:hover .kicker,.audience:focus-visible h3,.audience:focus-visible p,.audience:focus-visible .kicker{color:var(--white)}
+.audience .go{
+  margin-top:auto;width:58px;height:58px;border:1px solid currentColor;border-radius:50%;
+  display:grid;place-items:center;font-size:23px;transition:transform .55s cubic-bezier(.22,1,.36,1);
+}
+.audience:hover .go,.audience:focus-visible .go{transform:rotate(-45deg)}
+.big-marquee{overflow:hidden;white-space:nowrap;padding:10px 0;position:relative;z-index:2}
+.big-track{display:inline-flex;animation:ticker-scroll 48s linear infinite;will-change:transform}
+.big-track.reverse{animation-direction:reverse;animation-duration:56s}
+.big-group{display:inline-flex;flex:none}
+.big-group span{display:inline-flex;align-items:center;gap:.34em;padding-right:.34em;font-family:"Redaction 35",Georgia,serif;font-style:italic;font-size:clamp(58px,9vw,142px);line-height:1.02;letter-spacing:-.02em;color:var(--ink)}
+.big-group i{font-family:var(--font-mono);font-style:normal;font-size:.28em;color:var(--ember)}
+.big-marquee.outline .big-group span{color:transparent;-webkit-text-stroke:1px rgba(27,27,26,.22)}
+.giant{
+  overflow:hidden;margin:36px 0 42px;user-select:none;container-type:inline-size;
+  display:flex;align-items:baseline;--gs:clamp(42px,18.5cqi,210px);position:relative;z-index:2;
+}
+.giant-word{font-family:var(--font-display);font-size:var(--gs);line-height:.86;letter-spacing:-.065em;color:transparent;-webkit-text-stroke:1px rgba(27,27,26,.22);white-space:nowrap;transition:.45s}
+.giant-mark{flex:none;height:calc(var(--gs)*.675);width:calc(var(--gs)*.621);margin-right:calc(var(--gs)*.15);overflow:visible}
+.giant-mark use{color:rgba(27,27,26,.22);fill:none;stroke:currentColor;stroke-width:1px;vector-effect:non-scaling-stroke;transition:.45s}
+.giant:hover .giant-word{-webkit-text-stroke-color:var(--ember)}
+.giant:hover .giant-mark use{color:var(--ember)}
+@media (max-width:680px){
+  .cash-graph{padding:14px}
+  .graph-top{display:grid;font-size:9px}
+  .big-group span{font-size:58px}
+  .ticker span{font-size:10px}
+}
+.button.primary,.button.secondary,.button.ember{background-image:linear-gradient(var(--ember),var(--ember))}
+.button:active{transform:translateY(1px) scale(.99)}
+.button.primary:hover,.button.secondary:hover,.button.ember:hover{background-image:linear-gradient(var(--ember),var(--ember))}
+.button.primary,.button.secondary{background-size:100% 0%}
+.button.primary:hover,.button.secondary:hover,.button.ember:hover{background-size:100% 100%}
+@media (max-width:880px){.nav-links{background:rgba(242,242,240,.985)}}
+@media (prefers-reduced-motion:reduce){
+  .ticker-track,.big-track{animation:none!important}
+  .button,.button::before,.audience,.audience::after,.audience .go{transition:none!important}
+}
