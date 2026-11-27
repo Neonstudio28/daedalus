@@ -437,7 +437,7 @@ function createRadar(container, {
     container.classList.add('is-fallback');
     return () => canvas.remove();
   }
-  container.classList.add('is-enhanced');
+  if (!window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches) container.classList.add('is-enhanced');
   const wakeRef = { current: null };
   const settings = {
     color: String(color),
