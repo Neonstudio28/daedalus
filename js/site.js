@@ -296,7 +296,7 @@ function initGiantDecrypt() {
   const chars = [...word.textContent.trim()];
   const pool = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
   const speed = 92;
-  const maxIterations = 14;
+  const maxIterations = 8;
   const measureContext = document.createElement('canvas').getContext('2d');
   if (!measureContext) return;
   word.innerHTML = chars.map(char => `<span class="decrypt-char">${char}</span>`).join('');
