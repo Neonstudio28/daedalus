@@ -297,6 +297,7 @@ function initGiantDecrypt() {
   const pool = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
   const speed = 92;
   const maxIterations = 8;
+  word.setAttribute('aria-label', chars.join(''));
   const measureContext = document.createElement('canvas').getContext('2d');
   if (!measureContext) return;
   word.innerHTML = chars.map(char => `<span class="decrypt-char">${char === ' ' ? '&nbsp;' : char}</span>`).join('');
