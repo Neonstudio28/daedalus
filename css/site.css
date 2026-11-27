@@ -589,3 +589,7 @@ td.good{color:var(--ink);background:rgba(255,54,22,.035)}
 .tech-text-canvas{position:absolute;inset:0}
 .decrypt-char{display:inline-block}
 .decrypt-char.encrypted{color:var(--ember);-webkit-text-stroke:0;opacity:.82}
+.tech-text{touch-action:pan-y pinch-zoom}
+.tech-text-stage{display:grid;place-items:center}
+.tech-fallback{margin:0;font-size:clamp(52px,10vw,150px);line-height:.9;letter-spacing:-.055em;text-align:center}
+.tech-text.is-enhanced .tech-fallback{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}

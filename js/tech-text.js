@@ -62,16 +62,14 @@ function createTechText(container, options = {}) {
   if (!container) return () => {};
   const canvas = document.createElement('canvas');
   canvas.className = 'tech-text-canvas';
-  container.classList.add('tech-text');
-  container.setAttribute('role', 'img');
-  container.setAttribute('aria-label', options.text || TECH_TEXT_DEFAULTS.text);
+  const ctx = canvas.getContext('2d');
+  const scratch = document.createElement('canvas');
+  const scratchCtx = scratch.getContext('2d');
+  if (!ctx || !scratchCtx) return () => {};
+  container.classList.add('tech-text', 'is-enhanced');
   container.appendChild(canvas);
   const settingsRef = { current: { ...TECH_TEXT_DEFAULTS, ...options } };
   const wakeRef = { current: () => {} };
-const ctx = canvas?.getContext('2d');
-const scratch = document.createElement('canvas');
-const scratchCtx = scratch.getContext('2d');
-if (!container || !canvas || !ctx || !scratchCtx) return undefined;
 
 const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
 let width = 1;
@@ -963,6 +961,7 @@ return () => {
 window.createTechText = createTechText;
 
 document.querySelectorAll('[data-tech-text]').forEach(container => {
+  if (window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches) return;
   createTechText(container, {
     text: container.dataset.techText || 'Unlock your fleet',
     fontFamily: '"Funnel Display", sans-serif',
