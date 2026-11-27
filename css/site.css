@@ -80,13 +80,12 @@ h3{font-size:22px;line-height:1.2;letter-spacing:-.02em;margin-bottom:10px}
 .accent{color:var(--ember)}
 .small{font-size:14px;color:var(--muted)}
 .eyebrow-row{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
-.yc-pill,.tag{
+.tag{
   display:inline-flex;align-items:center;gap:8px;
   min-height:28px;padding:4px 10px;border:1px solid rgba(27,27,26,.1);border-radius:999px;
   background:rgba(255,255,255,.56);backdrop-filter:blur(10px);
   color:#4E4E4B;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.04em;
 }
-.yc-pill i{display:grid;place-items:center;width:16px;height:16px;border-radius:4px;background:var(--ember);color:white;font-family:var(--font-body);font-style:normal;font-weight:700;font-size:10px;line-height:1}
 .tag.example{border-style:dashed;color:var(--muted)}
 .page{display:none;position:relative;z-index:1}
 .page.active{display:block}

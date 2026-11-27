@@ -10,8 +10,7 @@ This folder holds the company website for **Daedalus Systems LLC** (a Texas LLC,
   - Robot companies, who keep the customer and keep their cash.
   - Capital partners, who get live data on every asset.
   - Nothing changes for contractors.
-- **Founder:** solo founder, applying to YC (W27). Based in Pune, India now. The company plans to base itself in **Dallas–Fort Worth, Texas**.
-- **Name clash:** there is an existing YC-backed company also called "Daedalus" (AI robotic factories). This was flagged; it hasn't been decided yet.
+- **Founder:** solo founder. Based in Pune, India now. The company plans to base itself in **Dallas–Fort Worth, Texas**.
 
 ### Copy rules (agreed with the founder)
 
@@ -50,7 +49,7 @@ The same site, the pitch deck and the full plan doc also live as claude.ai artif
 
 - Website: https://claude.ai/artifact/4KggBPMyB1Het1YYvkL9PZ
 - Deck (5 slides): https://claude.ai/artifact/XEb6FjFuNJiLH9HffVkUa8
-- Plan doc, including the YC answers: https://claude.ai/artifact/KcjWrPUcrWzfpGjpXcMwhY
+- Plan doc: https://claude.ai/artifact/KcjWrPUcrWzfpGjpXcMwhY
 
 ## How `index.html` works
 

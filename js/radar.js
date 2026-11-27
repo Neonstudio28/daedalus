@@ -193,10 +193,10 @@ void main() {
   vec3 eye = vec3(0.0, -uDistance * st, uDistance * ct);
   vec3 rel = world - eye;
   float xc = rel.x;
-  float yc = dot(rel, vec3(0.0, ct, st));
+  float yCoord = dot(rel, vec3(0.0, ct, st));
   float zc = max(dot(rel, vec3(0.0, st, -ct)), 0.0001);
   vec2 center = uCenter / uResolution * 2.0 - 1.0;
-  gl_Position = vec4(center * zc + 2.0 * uFocal * uViewHeight * vec2(xc, yc) / uResolution, 0.0, zc);
+  gl_Position = vec4(center * zc + 2.0 * uFocal * uViewHeight * vec2(xc, yCoord) / uResolution, 0.0, zc);
   vLocal = local;
   vStyle = aStyle;
   vKind = aSprite.w;
