@@ -300,34 +300,38 @@ function initGiantDecrypt() {
   word.setAttribute('aria-label', chars.join(''));
   const measureContext = document.createElement('canvas').getContext('2d');
   if (!measureContext) return;
-  word.innerHTML = chars.map(char => `<span class="decrypt-char">${char === ' ' ? '&nbsp;' : char}</span>`).join('');
-  const letters = [...word.children];
+  let charIndex = 0;
+  word.innerHTML = chars.join('').split(' ').map(part => {
+    const html = `<span class="decrypt-word">${[...part].map(char => {
+      const index = charIndex++;
+      return `<span class="decrypt-char" data-i="${index}">${char}</span>`;
+    }).join('')}</span>`;
+    charIndex++;
+    return html;
+  }).join(' ');
+  const letters = [...word.querySelectorAll('.decrypt-char')];
   const style = getComputedStyle(word);
   measureContext.font = `${style.fontStyle} ${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
-  const widths = letters.map(letter => letter.getBoundingClientRect().width);
+  letters.forEach(letter => { letter._decryptWidth = letter.getBoundingClientRect().width; });
   let frame = 0;
   let played = false;
 
   const randomChar = () => pool[Math.floor(Math.random() * pool.length)];
-  const paint = (letter, index, glyph, revealed) => {
-    if (chars[index] === ' ') {
-      letter.classList.remove('encrypted');
-      letter.innerHTML = '&nbsp;';
-      return;
-    }
+  const paint = (letter, glyph, revealed) => {
+    const index = Number(letter.dataset.i);
     letter.classList.toggle('encrypted', !revealed);
     letter.textContent = glyph;
     if (revealed) {
       letter.style.transform = '';
       return;
     }
-    const room = widths[index] || 1;
+    const room = letter._decryptWidth || 1;
     const need = measureContext.measureText(glyph).width;
     letter.style.transform = need > room ? `scaleX(${Math.max(.45, room / need)})` : '';
   };
   const finish = () => {
     frame = 0;
-    letters.forEach((letter, index) => paint(letter, index, chars[index], true));
+    letters.forEach(letter => paint(letter, chars[Number(letter.dataset.i)], true));
   };
   const start = () => {
     cancelAnimationFrame(frame);
@@ -336,7 +340,7 @@ function initGiantDecrypt() {
       const iteration = Math.max(1, Math.floor((now - started) / speed) + 1);
       letters.forEach((letter, index) => {
         const revealed = iteration > index + maxIterations;
-        paint(letter, index, revealed ? chars[index] : randomChar(), revealed);
+        paint(letter, revealed ? chars[Number(letter.dataset.i)] : randomChar(), revealed);
       });
       if (iteration >= chars.length + maxIterations) finish();
       else frame = requestAnimationFrame(step);
@@ -344,7 +348,7 @@ function initGiantDecrypt() {
     frame = requestAnimationFrame(step);
   };
 
-  letters.forEach((letter, index) => paint(letter, index, randomChar(), false));
+  letters.forEach(letter => paint(letter, randomChar(), false));
   const observer = new IntersectionObserver(entries => {
     if (entries.some(entry => entry.isIntersecting) && !played) {
       played = true;
