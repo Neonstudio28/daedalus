@@ -540,3 +540,5 @@ td.good{color:var(--ink);background:rgba(255,54,22,.035)}
 .rent-bar{fill:rgba(36,155,98,.2);stroke:rgba(36,155,98,.24);stroke-width:1}
 .rent-bar{fill:rgba(36,155,98,.14);stroke:rgba(36,155,98,.18);stroke-width:.8}
 .break-label text{font-size:10.5px}
+.cash-graph{overflow-x:auto}
+.cash-graph svg{min-width:560px}
