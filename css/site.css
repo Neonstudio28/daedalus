@@ -621,3 +621,9 @@ td.good{color:var(--ink);background:rgba(255,54,22,.035)}
   .page-hero h1{font-size:clamp(44px,13vw,58px);line-height:.96}
   .section-head h2{font-size:38px}
 }
+.hero h1{font-size:clamp(58px,7vw,102px);line-height:.92;max-width:1120px;font-weight:650;letter-spacing:-.06em}
+.hero h1 .accent{display:inline-block;color:#E62910;font-size:1.04em;letter-spacing:-.035em;text-shadow:0 0 .018em rgba(230,41,16,.32)}
+.hero .actions{margin-top:34px}
+@media (max-width:680px){
+  .hero h1{font-size:clamp(48px,14vw,64px);line-height:.94}
+}
