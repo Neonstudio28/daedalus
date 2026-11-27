@@ -1,0 +1,9 @@
+CLAUDE.md
+v1-single-page.html
+brand-src/
+.claude/
+.DS_Store
+.vercelignore
+vercel.json
+wrangler.jsonc
+fonts/redaction-35-latin-400-normal.woff2
