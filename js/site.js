@@ -218,7 +218,8 @@ function initContact() {
     const payload = Object.fromEntries(new FormData(form).entries());
     payload._replyto = payload.email;
     try {
-      const response = await fetch(form.action, {
+      const endpoint = form.action.replace('https://formsubmit.co/', 'https://formsubmit.co/ajax/');
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(payload)
@@ -226,10 +227,11 @@ function initContact() {
       const text = await response.text();
       let result = {};
       try { result = JSON.parse(text); } catch {}
-      if (!response.ok || result.success === 'false' || result.success === false) throw new Error(result.message || 'Submission failed');
+      const needsActivation = result.message?.includes('needs Activation') || text.includes('needs Activation');
+      if (!needsActivation && (!response.ok || result.success === 'false' || result.success === false)) throw new Error(result.message || 'Submission failed');
       form.reset();
       form.dispatchEvent(new Event('input'));
-      status.textContent = text.includes('needs Activation')
+      status.textContent = needsActivation
         ? 'Message received. It will be delivered after email activation is confirmed.'
         : 'Message sent. We will reply by email.';
     } catch {
