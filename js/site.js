@@ -291,7 +291,7 @@ function animateFigure(el) {
 }
 
 function initGiantDecrypt() {
-  const word = $('.giant-word');
+  const word = $('.decrypt-target');
   if (!word || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const chars = [...word.textContent.trim()];
   const pool = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -299,7 +299,7 @@ function initGiantDecrypt() {
   const maxIterations = 8;
   const measureContext = document.createElement('canvas').getContext('2d');
   if (!measureContext) return;
-  word.innerHTML = chars.map(char => `<span class="decrypt-char">${char}</span>`).join('');
+  word.innerHTML = chars.map(char => `<span class="decrypt-char">${char === ' ' ? '&nbsp;' : char}</span>`).join('');
   const letters = [...word.children];
   const style = getComputedStyle(word);
   measureContext.font = `${style.fontStyle} ${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
@@ -309,6 +309,11 @@ function initGiantDecrypt() {
 
   const randomChar = () => pool[Math.floor(Math.random() * pool.length)];
   const paint = (letter, index, glyph, revealed) => {
+    if (chars[index] === ' ') {
+      letter.classList.remove('encrypted');
+      letter.innerHTML = '&nbsp;';
+      return;
+    }
     letter.classList.toggle('encrypted', !revealed);
     letter.textContent = glyph;
     if (revealed) {
@@ -347,7 +352,7 @@ function initGiantDecrypt() {
     }
   }, { threshold: 0.2 });
   observer.observe(word);
-  word.closest('.giant')?.addEventListener('mouseenter', () => {
+  word.closest('.cta')?.addEventListener('mouseenter', () => {
     if (played && !frame) start();
   });
 }

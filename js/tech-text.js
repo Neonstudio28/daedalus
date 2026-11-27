@@ -968,6 +968,7 @@ document.querySelectorAll('[data-tech-text]').forEach(container => {
     fontWeight: 600,
     fontSize: 150,
     letterSpacing: -0.05,
+    align: container.dataset.techAlign || 'center',
     color: '#1B1B1A',
     accentColor: '#FF3616',
     reveal: 'letter',

@@ -730,3 +730,7 @@ td.good{color:var(--ink);background:rgba(255,54,22,.035)}
 @media (min-width:761px){.hero h1 .accent{font-size:1.508em;line-height:.84}}
 @media (min-width:761px){.hero h1{padding-bottom:.08em}}
 @media (min-width:761px){.hero h1 .accent{font-size:1.131em}}
+.cta-decrypt{min-height:clamp(150px,24vw,300px)}
+.giant-word.tech-text-stage{display:block;flex:1;min-width:0;margin:0;text-align:left}
+.giant-word.tech-text.is-enhanced{height:calc(var(--gs)*.98);max-height:none}
+.giant-word .tech-fallback{font:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;-webkit-text-stroke:inherit;text-align:left;white-space:nowrap}
