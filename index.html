@@ -380,15 +380,32 @@
       <section class="section hairline">
         <div class="wrap">
           <div class="section-head" data-reveal><div><p class="kicker">Position</p><h2>Money is easy to find. Robot data is not.</h2></div><p class="lede">Plenty of lenders fund machines, and robot makers know their own robots. Few can combine performance data from many robot makers with the capital to back it. That combination is the business.</p></div>
-          <div class="position-map" data-reveal aria-label="Positioning chart">
-            <span class="axis x"></span><span class="axis y"></span>
-            <span class="axis-label" style="left:50px;bottom:38px">Asset data</span>
-            <span class="axis-label" style="right:50px;bottom:38px">More</span>
-            <span class="axis-label" style="left:calc(50% + 12px);top:50px">Capital</span>
-            <span class="node" style="left:28%;top:30%">Equipment lenders</span>
-            <span class="node" style="left:70%;top:29%">Robot makers</span>
-            <span class="node" style="left:28%;top:73%">Venture balance sheets</span>
-            <span class="node daedalus" style="left:70%;top:66%">Daedalus</span>
+          <div class="position-map" data-reveal aria-label="Cartesian positioning chart comparing capital access and robot performance data">
+            <svg class="position-chart" viewBox="0 0 1000 520" aria-hidden="true">
+              <defs><marker id="axis-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z"/></marker></defs>
+              <g class="chart-grid">
+                <line x1="110" y1="80" x2="110" y2="430"/><line x1="315" y1="80" x2="315" y2="430"/><line x1="520" y1="80" x2="520" y2="430"/><line x1="725" y1="80" x2="725" y2="430"/><line x1="930" y1="80" x2="930" y2="430"/>
+                <line x1="110" y1="430" x2="930" y2="430"/><line x1="110" y1="342" x2="930" y2="342"/><line x1="110" y1="255" x2="930" y2="255"/><line x1="110" y1="168" x2="930" y2="168"/><line x1="110" y1="80" x2="930" y2="80"/>
+              </g>
+              <g class="chart-ticks">
+                <line x1="315" y1="425" x2="315" y2="435"/><line x1="520" y1="425" x2="520" y2="435"/><line x1="725" y1="425" x2="725" y2="435"/>
+                <line x1="105" y1="342" x2="115" y2="342"/><line x1="105" y1="255" x2="115" y2="255"/><line x1="105" y1="168" x2="115" y2="168"/>
+              </g>
+              <line class="axis-line" x1="110" y1="430" x2="930" y2="430" marker-end="url(#axis-arrow)"/>
+              <line class="axis-line" x1="110" y1="430" x2="110" y2="80" marker-end="url(#axis-arrow)"/>
+              <text class="axis-title" x="520" y="492" text-anchor="middle">Robot performance data</text>
+              <text class="axis-title" transform="translate(34 255) rotate(-90)" text-anchor="middle">Access to capital</text>
+              <text class="axis-end" x="118" y="462">Low</text><text class="axis-end" x="900" y="462">High</text>
+              <text class="axis-end" x="78" y="434" text-anchor="end">Low</text><text class="axis-end" x="78" y="88" text-anchor="end">High</text>
+              <text class="quadrant-label" x="300" y="112" text-anchor="middle">Capital, little robot data</text>
+              <text class="quadrant-label" x="725" y="112" text-anchor="middle">Capital + robot data</text>
+              <text class="quadrant-label" x="300" y="405" text-anchor="middle">Neither</text>
+              <text class="quadrant-label" x="725" y="405" text-anchor="middle">Data, little capital</text>
+            </svg>
+            <span class="node" style="left:30%;top:29%">Equipment lenders</span>
+            <span class="node" style="left:24%;top:40%">Venture balance sheets</span>
+            <span class="node" style="left:70%;top:63%">Robot makers</span>
+            <span class="node daedalus" style="left:74%;top:31%">Daedalus</span>
           </div>
         </div>
       </section>
