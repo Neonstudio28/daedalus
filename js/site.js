@@ -290,6 +290,67 @@ function animateFigure(el) {
   requestAnimationFrame(tick);
 }
 
+function initGiantDecrypt() {
+  const word = $('.giant-word');
+  if (!word || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const chars = [...word.textContent.trim()];
+  const pool = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+';
+  const speed = 60;
+  const maxIterations = 10;
+  word.innerHTML = chars.map(char => `<span class="decrypt-char">${char}</span>`).join('');
+  const letters = [...word.children];
+  const style = getComputedStyle(word);
+  const measureContext = document.createElement('canvas').getContext('2d');
+  measureContext.font = `${style.fontStyle} ${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
+  const widths = letters.map(letter => letter.getBoundingClientRect().width);
+  let frame = 0;
+  let played = false;
+
+  const randomChar = () => pool[Math.floor(Math.random() * pool.length)];
+  const paint = (letter, index, glyph, revealed) => {
+    letter.classList.toggle('encrypted', !revealed);
+    letter.textContent = glyph;
+    if (revealed) {
+      letter.style.transform = '';
+      return;
+    }
+    const room = widths[index] || 1;
+    const need = measureContext.measureText(glyph).width;
+    letter.style.transform = need > room ? `scaleX(${Math.max(.45, room / need)})` : '';
+  };
+  const finish = () => {
+    frame = 0;
+    letters.forEach((letter, index) => paint(letter, index, chars[index], true));
+  };
+  const start = () => {
+    cancelAnimationFrame(frame);
+    const started = performance.now();
+    const step = now => {
+      const iteration = Math.max(1, Math.floor((now - started) / speed) + 1);
+      letters.forEach((letter, index) => {
+        const revealed = iteration > index + maxIterations;
+        paint(letter, index, revealed ? chars[index] : randomChar(), revealed);
+      });
+      if (iteration >= chars.length + maxIterations) finish();
+      else frame = requestAnimationFrame(step);
+    };
+    frame = requestAnimationFrame(step);
+  };
+
+  letters.forEach((letter, index) => paint(letter, index, randomChar(), false));
+  const observer = new IntersectionObserver(entries => {
+    if (entries.some(entry => entry.isIntersecting) && !played) {
+      played = true;
+      start();
+      observer.disconnect();
+    }
+  }, { threshold: 0.2 });
+  observer.observe(word);
+  word.closest('.giant')?.addEventListener('mouseenter', () => {
+    if (played && !frame) start();
+  });
+}
+
 function initFigureAnimations() {
   const figures = $$('.hero-facts b,.metric b,.stat b');
   if (!figures.length) return;
@@ -393,6 +454,7 @@ function init() {
   initMonitor();
   initContact();
   initNavScramble();
+  initGiantDecrypt();
   initFigureAnimations();
   initScrollAnimations();
   route();
