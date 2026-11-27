@@ -588,7 +588,7 @@ td.good{color:var(--ink);background:rgba(255,54,22,.035)}
 .tech-text.is-enhanced{height:clamp(150px,24vw,300px);max-height:300px;overflow:hidden}
 .tech-text-canvas{position:absolute;inset:0}
 .decrypt-char{display:inline-block}
-.decrypt-char.encrypted{color:var(--ember);-webkit-text-stroke:0;opacity:.82}
+.decrypt-char.encrypted{color:transparent;-webkit-text-stroke:1px var(--ember);opacity:.82}
 .tech-text{touch-action:pan-y pinch-zoom}
 .tech-text-stage{display:grid;place-items:center}
 .tech-fallback{margin:0;font-size:clamp(52px,10vw,150px);line-height:.9;letter-spacing:-.055em;text-align:center}
