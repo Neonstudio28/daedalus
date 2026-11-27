@@ -734,3 +734,5 @@ td.good{color:var(--ink);background:rgba(255,54,22,.035)}
 .giant-word.tech-text-stage{display:block;flex:1;min-width:0;margin:0;text-align:left}
 .giant-word.tech-text.is-enhanced{height:calc(var(--gs)*.98);max-height:none}
 .giant-word .tech-fallback{font:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;-webkit-text-stroke:inherit;text-align:left;white-space:nowrap}
+.giant{align-items:flex-end}
+.giant-mark{margin-right:calc(var(--gs)*.1)}

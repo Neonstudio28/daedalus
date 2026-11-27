@@ -55,7 +55,9 @@ const TECH_TEXT_DEFAULTS = {
   clickKick: true,
   intro: 'none',
   introDuration: 2,
-  guides: false
+  guides: false,
+  marginRatio: 0.05,
+  heightFit: 0.66
 };
 
 function createTechText(container, options = {}) {
@@ -192,14 +194,14 @@ const ensureLayout = (s, ink) => {
   const fit = Math.min(
     1,
     (width * 0.9) / Math.max(m.actualBoundingBoxLeft + m.actualBoundingBoxRight, 1),
-    (height * 0.66) / Math.max(m.actualBoundingBoxAscent + m.actualBoundingBoxDescent, 1)
+    (height * (s.heightFit ?? 0.66)) / Math.max(m.actualBoundingBoxAscent + m.actualBoundingBoxDescent, 1)
   );
   const size = s.fontSize * fit;
   setFont(probe, s, size);
   m = probe.measureText(s.text);
   const inkWidth = m.actualBoundingBoxLeft + m.actualBoundingBoxRight;
   const inkHeight = m.actualBoundingBoxAscent + m.actualBoundingBoxDescent;
-  const margin = width * 0.05;
+  const margin = width * (s.marginRatio ?? 0.05);
   const start =
     s.align === 'left' ? margin : s.align === 'right' ? width - margin - inkWidth : (width - inkWidth) / 2;
   const x = start + m.actualBoundingBoxLeft;
@@ -966,9 +968,11 @@ document.querySelectorAll('[data-tech-text]').forEach(container => {
     text: container.dataset.techText || 'Unlock your fleet',
     fontFamily: '"Funnel Display", sans-serif',
     fontWeight: 600,
-    fontSize: 150,
+    fontSize: container.dataset.techFontSize ? Number(container.dataset.techFontSize) : 150,
     letterSpacing: -0.05,
     align: container.dataset.techAlign || 'center',
+    marginRatio: container.dataset.techMargin ? Number(container.dataset.techMargin) : 0.05,
+    heightFit: container.dataset.techHeightFit ? Number(container.dataset.techHeightFit) : 0.66,
     color: '#1B1B1A',
     accentColor: '#FF3616',
     reveal: 'letter',
