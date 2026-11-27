@@ -297,10 +297,11 @@ function initGiantDecrypt() {
   const pool = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+';
   const speed = 60;
   const maxIterations = 10;
+  const measureContext = document.createElement('canvas').getContext('2d');
+  if (!measureContext) return;
   word.innerHTML = chars.map(char => `<span class="decrypt-char">${char}</span>`).join('');
   const letters = [...word.children];
   const style = getComputedStyle(word);
-  const measureContext = document.createElement('canvas').getContext('2d');
   measureContext.font = `${style.fontStyle} ${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
   const widths = letters.map(letter => letter.getBoundingClientRect().width);
   let frame = 0;
