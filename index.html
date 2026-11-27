@@ -485,24 +485,25 @@
       <section class="section tight">
         <div class="wrap contact-grid">
           <div>
-            <!-- PLACEHOLDER email: replace before launch -->
-            <div class="contact-card" data-reveal><b>Email</b><p><a href="mailto:hello@daedalus.tech">hello@daedalus.tech</a></p><p class="small">Placeholder launch email.</p></div>
+            <div class="contact-card" data-reveal><b>Email</b><p><a href="mailto:sales@trydaedalus.tech">sales@trydaedalus.tech</a></p></div>
             <!-- PLACEHOLDER office: replace before launch -->
             <div class="contact-card" data-reveal><b>Office</b><p>1847 Labyrinth Way, Suite 300<br>Dallas, TX 75201</p><p class="small">Placeholder address. The company plans to base itself in Dallas-Fort Worth.</p></div>
           </div>
-          <form class="note-form" id="contact-form" data-reveal>
+          <form class="note-form" id="contact-form" action="https://formsubmit.co/sales@trydaedalus.tech" method="POST" data-reveal>
+            <input type="hidden" name="_subject" value="Fleet financing inquiry">
+            <input type="hidden" name="_template" value="table">
             <h2 style="font-size:36px;margin-bottom:10px">Prepare a note.</h2>
-            <p class="small" style="margin-bottom:24px">This form does not send anything by itself. It creates a message you can copy or open in your email app.</p>
+            <p class="small" style="margin-bottom:24px">Send the details directly to Daedalus, or open the note in your email app instead.</p>
             <div class="form-grid">
-              <div class="field"><label for="c-name">Name</label><input id="c-name" name="name" autocomplete="name"></div>
-              <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email"></div>
+              <div class="field"><label for="c-name">Name</label><input id="c-name" name="name" autocomplete="name" required></div>
+              <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
               <div class="field"><label for="c-type">I am a</label><select id="c-type" name="type"><option>Robot company</option><option>Capital partner</option><option>Contractor</option><option>Other</option></select></div>
               <div class="field"><label for="c-org">Company or organization</label><input id="c-org" name="org" autocomplete="organization"></div>
-              <div class="field full"><label for="c-message">Message</label><textarea id="c-message" name="message" placeholder="Tell us about the robots, monthly rent, fleet size and telemetry you have."></textarea></div>
+              <div class="field full"><label for="c-message">Message</label><textarea id="c-message" name="message" placeholder="Tell us about the robots, monthly rent, fleet size and telemetry you have." required></textarea></div>
             </div>
             <div class="form-actions">
-              <button class="button primary" id="copy-note" type="button">Copy note</button>
-              <a class="button secondary" id="mailto-link" href="mailto:hello@daedalus.tech">Open email app</a>
+              <button class="button primary" id="send-note" type="submit">Send message</button>
+              <a class="button secondary" id="mailto-link" href="mailto:sales@trydaedalus.tech">Open email app</a>
               <span class="copy-status" aria-live="polite"></span>
             </div>
           </form>

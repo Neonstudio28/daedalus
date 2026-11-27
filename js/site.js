@@ -200,24 +200,44 @@ function initMonitor() {
 function initContact() {
   const form = $('#contact-form');
   if (!form) return;
-  const copy = $('#copy-note');
+  const submit = $('#send-note');
   const status = $('.copy-status');
+  const mailto = $('#mailto-link');
   const compose = () => {
     const data = new FormData(form);
     return `Hello Daedalus,\n\nMy name is ${data.get('name') || ''}.\nI am a: ${data.get('type') || ''}\nCompany or organization: ${data.get('org') || ''}\n\n${data.get('message') || ''}\n\nReply to: ${data.get('email') || ''}`;
   };
   form.addEventListener('input', () => {
-    $('#mailto-link').href = `mailto:hello@daedalus.tech?subject=${encodeURIComponent('Fleet financing inquiry')}&body=${encodeURIComponent(compose())}`;
+    mailto.href = `mailto:sales@trydaedalus.tech?subject=${encodeURIComponent('Fleet financing inquiry')}&body=${encodeURIComponent(compose())}`;
   });
-  copy.addEventListener('click', async event => {
+  form.addEventListener('submit', async event => {
     event.preventDefault();
+    if (!form.reportValidity()) return;
+    submit.disabled = true;
+    status.textContent = 'Sending…';
+    const payload = Object.fromEntries(new FormData(form).entries());
+    payload._replyto = payload.email;
     try {
-      await navigator.clipboard.writeText(compose());
-      status.textContent = 'Copied. Paste it into your email app.';
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const text = await response.text();
+      let result = {};
+      try { result = JSON.parse(text); } catch {}
+      if (!response.ok || result.success === 'false' || result.success === false) throw new Error(result.message || 'Submission failed');
+      form.reset();
+      form.dispatchEvent(new Event('input'));
+      status.textContent = text.includes('needs Activation')
+        ? 'Message received. It will be delivered after email activation is confirmed.'
+        : 'Message sent. We will reply by email.';
     } catch {
-      status.textContent = 'Copy is unavailable in this browser.';
+      status.textContent = 'Sending failed. Please use the email app button.';
+    } finally {
+      submit.disabled = false;
+      setTimeout(() => status.textContent = '', 5000);
     }
-    setTimeout(() => status.textContent = '', 3000);
   });
   form.dispatchEvent(new Event('input'));
 }
