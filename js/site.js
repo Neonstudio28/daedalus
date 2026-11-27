@@ -57,6 +57,15 @@ function revealInView() {
 
 function initNav() {
   const head = $('.site-head');
+  $('.skip')?.addEventListener('click', event => {
+    event.preventDefault();
+    const title = $('.page.active h1');
+    if (title) {
+      title.setAttribute('tabindex', '-1');
+      title.focus();
+      title.scrollIntoView({ block: 'start' });
+    }
+  });
   const onScroll = () => head.classList.toggle('scrolled', scrollY > 12);
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
@@ -127,10 +136,11 @@ function initQuote() {
 
     const q = Number(qty.value), c = Number(cost.value), r = Number(rent.value), u = Number(uptime.value), months = Number(term.value);
     const advanceRate = Math.max(.5, Math.min(.85, .5 + (u - 70) / 30 * .35));
-    const funded = q * c * advanceRate;
     const monthlyRate = .11 / 12;
-    const amortized = funded * monthlyRate / (1 - (1 + monthlyRate) ** -months);
-    const payment = Math.min(q * r * .7, amortized);
+    const paymentCap = q * r * .7;
+    const annuityFactor = (1 - (1 + monthlyRate) ** -months) / monthlyRate;
+    const funded = Math.min(q * c * advanceRate, paymentCap * annuityFactor);
+    const payment = funded / annuityFactor;
     $('#quote-funded').textContent = money(funded);
     $('#quote-payment').textContent = money(payment);
     $('#quote-cash').textContent = money(q * c - funded);
