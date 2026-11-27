@@ -695,3 +695,8 @@ td.good{color:var(--ink);background:rgba(255,54,22,.035)}
 .compare-wrap td.highlight small{color:#5B5552}
 .compare-wrap .check,.compare-wrap .cross{display:block;font-size:15px;margin-bottom:2px}
 .hero h1 .accent{color:#B01302;text-shadow:0 0 .035em rgba(255,255,255,.95),0 0 .09em rgba(255,255,255,.86),0 0 .22em rgba(255,255,255,.68),0 0 .48em rgba(255,255,255,.52)}
+.plot-node rect{fill:rgba(255,255,255,.94);stroke:rgba(27,27,26,.13);filter:drop-shadow(0 8px 14px rgba(27,27,26,.14))}
+.plot-node text{font-family:var(--font-body);font-size:15px;font-weight:700;fill:#1B1B1A;dominant-baseline:middle}
+.daedalus-node rect{fill:#1B1B1A;stroke:rgba(255,54,22,.55);stroke-width:2;filter:drop-shadow(0 0 14px rgba(255,54,22,.24))}
+.daedalus-node text{fill:white;font-size:17px}
+@media (max-width:760px){.position-map{height:230px}}
