@@ -542,3 +542,4 @@ td.good{color:var(--ink);background:rgba(255,54,22,.035)}
 .break-label text{font-size:10.5px}
 .cash-graph{overflow-x:auto}
 .cash-graph svg{min-width:560px}
+.chart-note{margin-top:8px;font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}

@@ -350,6 +350,7 @@ function initScrollAnimations() {
     const readout = $('[data-cash-readout]');
     const chart = line.closest('.cash-graph');
     const progress = { value: 0 };
+    readout.textContent = 'Month 0 · −$90K cash';
     const timeline = gsap.timeline({
       scrollTrigger: { trigger: chart, start: 'top 82%', once: true }
     });
