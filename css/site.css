@@ -701,3 +701,13 @@ td.good{color:var(--ink);background:rgba(255,54,22,.035)}
 .daedalus-node text{fill:white;font-size:17px}
 @media (max-width:1080px) and (min-width:761px){.metric-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:760px){.position-map{height:230px}}
+@media (max-width:760px){
+  .position-map{height:360px;overflow-x:auto}
+  .position-chart{width:680px;max-width:none}
+  .plot-node text{font-size:22px}
+  .plot-node rect{y:-27px;height:54px;rx:27px}
+  .equipment-node rect{x:-132px;width:264px}
+  .venture-node rect{x:-176px;width:352px}
+  .robot-node rect{x:-95px;width:190px}
+  .daedalus-node rect{x:-66px;width:132px}
+}
