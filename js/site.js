@@ -371,6 +371,23 @@ function initScrollAnimations() {
   if (reduced || !window.gsap || !window.ScrollTrigger) return;
   gsap.registerPlugin(ScrollTrigger);
 
+  const quote = $('[data-quote-words]');
+  if (quote) {
+    const words = quote.textContent.trim().split(/\s+/);
+    quote.innerHTML = words.map(word => `<span class="quote-word">${word}</span>`).join(' ');
+    gsap.fromTo($$('.quote-word', quote), { opacity: .14 }, {
+      opacity: 1,
+      ease: 'none',
+      stagger: .05,
+      scrollTrigger: {
+        trigger: quote,
+        start: 'top 84%',
+        end: 'bottom 38%',
+        scrub: .55
+      }
+    });
+  }
+
   const stage = $('.hero-stage');
   if (stage && innerWidth >= 768) {
     const frame = $('.device-frame', stage);
