@@ -982,6 +982,7 @@ document.querySelectorAll('[data-tech-text]').forEach(container => {
     intro: 'none',
     introDuration: 2,
     clickKick: true,
+    labels: false,
     draggable: container.dataset.techDrag === 'desktop' ? !window.matchMedia?.('(pointer: coarse)')?.matches : container.dataset.techDrag !== 'false',
     guides: false
   });
