@@ -32,6 +32,7 @@ function route() {
   });
   document.title = TITLES[page];
   document.querySelector('.site-head')?.classList.remove('open');
+  $('.menu-button')?.setAttribute('aria-expanded', 'false');
   window.scrollTo({ top: 0, behavior: 'instant' });
   requestAnimationFrame(() => {
     const title = $(`.page[data-page="${page}"] h1`);
@@ -344,23 +345,41 @@ function initScrollAnimations() {
 
   const line = $('[data-graph-line]');
   if (line) {
-    const length = Math.hypot(520, 260);
-    gsap.fromTo(line,
-      { strokeDasharray: length, strokeDashoffset: length },
-      {
-        strokeDashoffset: 0,
-        duration: 1.6,
-        ease: 'power3.inOut',
-        scrollTrigger: { trigger: line.closest('.cash-graph'), start: 'top 82%', once: true }
-      });
-    gsap.from('.cash-graph .dot', {
-      scale: 0,
-      transformOrigin: '50% 50%',
-      duration: .55,
-      ease: 'back.out(3)',
-      stagger: .16,
-      scrollTrigger: { trigger: line.closest('.cash-graph'), start: 'top 82%', once: true }
+    const length = line.getTotalLength();
+    const scan = $('[data-scan-dot]');
+    const readout = $('[data-cash-readout]');
+    const chart = line.closest('.cash-graph');
+    const progress = { value: 0 };
+    const timeline = gsap.timeline({
+      scrollTrigger: { trigger: chart, start: 'top 82%', once: true }
     });
+    timeline
+      .fromTo(line,
+        { strokeDasharray: length, strokeDashoffset: length },
+        { strokeDashoffset: 0, duration: 1.7, ease: 'power2.inOut' }, 0)
+      .from('.cash-graph .dot', {
+        scale: 0,
+        transformOrigin: '50% 50%',
+        duration: .45,
+        ease: 'back.out(3)',
+        stagger: .1
+      }, .35)
+      .to(scan, { opacity: 1, duration: .18 }, 1.35)
+      .to(progress, {
+        value: 1,
+        duration: 2.1,
+        ease: 'power1.inOut',
+        onUpdate() {
+          const point = line.getPointAtLength(length * progress.value);
+          scan.setAttribute('cx', point.x);
+          scan.setAttribute('cy', point.y);
+          const month = Math.round(progress.value * 36);
+          const cash = -90 + month * 5;
+          const sign = cash < 0 ? '−' : '+';
+          readout.textContent = `Month ${month} · ${cash === 0 ? '$0' : `${sign}$${Math.abs(cash)}K`} cash`;
+        }
+      }, 1.45)
+      .to(scan, { opacity: 0, duration: .3 }, '>-0.1');
   }
 }
 
