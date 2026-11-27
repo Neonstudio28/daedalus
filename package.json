@@ -1,7 +1,0 @@
-{
-  "name": "daedalus-site",
-  "private": true,
-  "scripts": {
-    "build": "echo 'Static site: no build step'"
-  }
-}
