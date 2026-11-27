@@ -982,6 +982,7 @@ document.querySelectorAll('[data-tech-text]').forEach(container => {
     intro: 'none',
     introDuration: 2,
     clickKick: true,
+    draggable: container.dataset.techDrag !== 'false',
     guides: false
   });
 });
