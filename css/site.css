@@ -531,3 +531,12 @@ td.good{color:var(--ink);background:rgba(255,54,22,.035)}
 .footer-inner{z-index:1}
 .wash{display:none}
 @media (max-width:680px){.hero-facts b{font-size:38px}.hero-facts div{max-width:160px}.cash-graph{padding:14px}}
+.mc-vgrid{opacity:.34}
+.mc-break{stroke:var(--ember);stroke-width:1.5;stroke-dasharray:4 5;opacity:.72}
+.break-label rect{fill:var(--ink);stroke:rgba(255,255,255,.72)}
+.break-label text{font-family:var(--font-mono);font-size:11px;fill:var(--white);letter-spacing:.02em}
+.mc-strip-line{stroke:var(--line-2);stroke-width:1}
+.mc-strip-label{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;fill:var(--dim)}
+.rent-bar{fill:rgba(36,155,98,.2);stroke:rgba(36,155,98,.24);stroke-width:1}
+.rent-bar{fill:rgba(36,155,98,.14);stroke:rgba(36,155,98,.18);stroke-width:.8}
+.break-label text{font-size:10.5px}
