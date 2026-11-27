@@ -729,3 +729,4 @@ td.good{color:var(--ink);background:rgba(255,54,22,.035)}
 .page-hero h1,.section-head h2{font-weight:400}
 @media (min-width:761px){.hero h1 .accent{font-size:1.508em;line-height:.84}}
 @media (min-width:761px){.hero h1{padding-bottom:.08em}}
+@media (min-width:761px){.hero h1 .accent{font-size:1.131em}}
