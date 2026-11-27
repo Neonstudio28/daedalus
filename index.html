@@ -258,12 +258,22 @@
       <section class="section tight">
         <div class="wrap">
           <div class="section-head" data-reveal><div><p class="kicker">Telemetry</p><h2>What the robots tell us.</h2></div></div>
-          <div class="grid-4">
+          <div class="grid-4 telemetry-grid">
             <article class="card telemetry-card" data-reveal><h3>Hours worked</h3><div class="telemetry-visual"><div class="bars"><i style="--h:58%"></i><i style="--h:70%"></i><i style="--h:64%"></i><i style="--h:82%"></i><i style="--h:76%"></i><i style="--h:90%"></i><i style="--h:68%"></i></div></div><p>Proof the robot is earning its rent, day by day.</p></article>
             <article class="card telemetry-card" data-reveal><h3>Uptime</h3><div class="telemetry-visual"><div class="ring" data-v="96%" style="--p:96%"></div></div><p>How often the robot is ready to work when the job needs it.</p></article>
             <article class="card telemetry-card" data-reveal><h3>Output</h3><div class="telemetry-visual"><div class="pulse-line"></div></div><p>The work itself: holes drilled, meters of layout printed, rebar tied.</p></article>
-            <article class="card telemetry-card" data-reveal><h3>Location</h3><div class="telemetry-visual"><i class="map-dot" style="--x:22%;--y:35%"></i><i class="map-dot" style="--x:56%;--y:58%"></i><i class="map-dot" style="--x:78%;--y:30%"></i></div><p>Where every funded robot is, so nothing walks off the job.</p></article>
           </div>
+          <article class="card telemetry-card location-card" data-reveal>
+            <div class="location-copy">
+              <p class="kicker">Location</p>
+              <h3>Every funded robot, on the map.</h3>
+              <p>Where every funded robot is, so nothing walks off the job.</p>
+            </div>
+            <div class="location-radar" data-radar>
+              <div class="radar-fallback" aria-hidden="true"><i style="--x:31%;--y:38%"></i><i style="--x:58%;--y:57%"></i><i style="--x:74%;--y:31%"></i></div>
+              <div class="radar-hud"><span>Asset location sweep</span><span>Illustrative</span></div>
+            </div>
+          </article>
         </div>
       </section>
       <section class="section"><div class="wrap"><div class="cta" data-reveal><h2>See what it means for you.</h2><p>Robot companies can run payback numbers. Capital partners can inspect the fleet monitor.</p><div class="actions"><a class="button ember large" href="#robot-companies" data-route>Keep your cash</a><a class="button secondary large" href="#capital-partners" data-route>Watch the fleet</a></div></div></div></section>
@@ -569,6 +579,7 @@
   <script src="/js/vendor/gsap.min.js"></script>
   <script src="/js/vendor/ScrollTrigger.min.js"></script>
   <script src="/js/tech-text.js"></script>
+  <script src="/js/radar.js"></script>
   <script type="module" src="/js/site.js"></script>
   <script>if(location.hostname!=='localhost'&&location.hostname!=='127.0.0.1'){const s=document.createElement('script');s.defer=true;s.src='/_vercel/insights/script.js';document.head.appendChild(s)}</script>
 </body>

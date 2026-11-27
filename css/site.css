@@ -593,3 +593,24 @@ td.good{color:var(--ink);background:rgba(255,54,22,.035)}
 .tech-text-stage{display:grid;place-items:center}
 .tech-fallback{margin:0;font-size:clamp(52px,10vw,150px);line-height:.9;letter-spacing:-.055em;text-align:center}
 .tech-text.is-enhanced .tech-fallback{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.telemetry-grid{grid-template-columns:repeat(3,minmax(0,1fr));margin-bottom:18px}
+.location-card{display:grid;grid-template-columns:minmax(250px,.72fr) minmax(0,1.28fr);min-height:430px;padding:0;overflow:hidden;background:linear-gradient(135deg,rgba(255,255,255,.82),rgba(255,255,255,.42))}
+.location-copy{position:relative;z-index:2;align-self:center;padding:clamp(30px,4.5vw,58px)}
+.location-copy h3{font-size:clamp(38px,4.8vw,70px);line-height:.96;letter-spacing:-.05em;max-width:430px}
+.location-copy p:last-child{font-size:17px;max-width:390px}
+.location-radar{position:relative;min-height:430px;overflow:hidden;border-left:1px solid rgba(27,27,26,.09);background:radial-gradient(60% 70% at 50% 50%,rgba(255,54,22,.06),transparent 70%)}
+.radar-container{position:absolute;inset:0;width:100%;height:100%;overflow:hidden}
+.radar-canvas{position:absolute;inset:0;display:block;width:100%;height:100%}
+.radar-hud{position:absolute;z-index:3;top:18px;left:20px;right:20px;display:flex;justify-content:space-between;gap:12px;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(27,27,26,.48);pointer-events:none}
+.radar-hud span:last-child{color:var(--ember)}
+.radar-fallback{position:absolute;inset:0;display:grid;place-items:center}
+.radar-fallback::before{content:"";width:min(72%,330px);aspect-ratio:1;border:1px solid rgba(255,54,22,.28);border-radius:50%;background:repeating-radial-gradient(circle,transparent 0 42px,rgba(255,54,22,.12) 43px 44px)}
+.radar-fallback i{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 9px rgba(255,54,22,.12);left:var(--x);top:var(--y)}
+.radar-container.is-enhanced .radar-fallback{display:none}
+@media (max-width:860px){
+  .telemetry-grid{grid-template-columns:1fr}
+  .location-card{grid-template-columns:1fr;min-height:0}
+  .location-copy{padding-bottom:0}
+  .location-radar{min-height:330px;border-left:0;border-top:1px solid rgba(27,27,26,.09)}
+}
+.location-radar.radar-container{position:relative;inset:auto}
