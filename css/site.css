@@ -554,3 +554,25 @@ td.good{color:var(--ink);background:rgba(255,54,22,.035)}
 .cta{background:rgba(31,31,30,.76);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(20px)}
 .cta::before{display:none}
 .cta{background-color:rgba(24,24,23,.88);background-image:linear-gradient(135deg,rgba(255,255,255,.045),rgba(255,255,255,0))}
+.big-marquee{
+  background:hsl(0 0% 100% / .14);
+  border-block:0;
+  -webkit-backdrop-filter:blur(12px) saturate(1.4) brightness(1.04);
+  backdrop-filter:blur(12px) saturate(1.4) brightness(1.04);
+  box-shadow:
+    inset 0 1px 0 hsl(0 0% 100% / .85),
+    inset 0 -1px 0 hsl(0 0% 100% / .35),
+    inset 0 0 2px 1px rgba(0,0,0,.08),
+    inset 0 0 12px 3px rgba(255,255,255,.28),
+    0 4px 16px rgba(17,17,26,.06),
+    0 8px 24px rgba(17,17,26,.06),
+    0 16px 56px rgba(17,17,26,.06);
+}
+.big-marquee::before,.big-marquee::after{content:"";position:absolute;inset:0;pointer-events:none}
+.big-marquee::before{background:linear-gradient(135deg,hsl(0 0% 100% / .42),transparent 42%,transparent 64%,hsl(0 0% 100% / .18))}
+.big-marquee::after{box-shadow:inset 0 0 0 1px rgba(255,255,255,.36),inset 0 0 0 3px rgba(255,255,255,.08)}
+.big-track{position:relative;z-index:1}
+.big-marquee{background:hsl(0 0% 100% / .08)}
+.big-marquee::before{background:linear-gradient(135deg,hsl(0 0% 100% / .28),transparent 42%,transparent 64%,hsl(0 0% 100% / .1))}
+.big-marquee{padding:20px 0}
+.big-group span{line-height:1.1}
